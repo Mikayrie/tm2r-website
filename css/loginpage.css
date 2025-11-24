@@ -1,11 +1,8 @@
 :root {
     --primary-color: #004d80;
-    /* Dark Blue */
     --secondary-color: #1a6bd4;
     --light-bg: #fdfdf5;
-    /* Light Beige Body */
     --card-bg: #ffffff;
-    /* Using white for the form area for better readability */
     --text-color: #333;
     --link-color: #fff;
 }
@@ -14,7 +11,6 @@ body {
     margin: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
     background-color: var(--light-bg);
-    /* Use theme background */
 }
 
 .login-wrapper {
@@ -23,27 +19,30 @@ body {
     align-items: center;
     justify-content: center;
     background-color: var(--light-bg);
-    /* Use theme background */
+    padding: 20px;
 }
 
 .login-container {
     display: flex;
-    min-width: 800px;
+    /* IMPORTANT: Changed 'min-width' to 'max-width' so it shrinks on phones */
+    width: 100%; 
+    max-width: 800px;
     min-height: 600px;
     position: relative;
-    gap: 100px;
+    /* RESTORED: This puts the 100px space back between the boxes on desktop */
+    gap: 100px; 
     background: transparent;
     padding: 0;
-
-    /* Styles for the outer container */
     border-radius: 24px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
     overflow: hidden;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .login-left,
 .login-right {
-    flex: 1 1 0;
+    /* RESTORED: Your original flex value */
+    flex: 1 1 0; 
     padding: 48px 36px;
     display: flex;
     flex-direction: column;
@@ -51,34 +50,26 @@ body {
     justify-content: center;
 }
 
-/* Themed decorative panel */
 .login-left {
     background: var(--primary-color);
-    /* Use theme's primary blue */
     border-top-left-radius: 24px;
     border-bottom-left-radius: 24px;
-
-    /* --- BORDER FOR LEFT PANEL --- */
     border-right: 3px solid var(--secondary-color);
 }
 
-/* Themed form panel */
 .login-right {
     background: var(--card-bg);
-    /* Use theme's card color */
     border-top-right-radius: 24px;
     border-bottom-right-radius: 24px;
-
-    /* --- BORDER FOR RIGHT PANEL --- */
     border-left: 3px solid var(--secondary-color);
 }
 
 .login-logo {
     width: 350px;
     margin-bottom: 16px;
+    max-width: 100%;
 }
 
-/* Text on the blue panel should be white */
 .login-title {
     color: var(--link-color);
     font-size: 2rem;
@@ -148,7 +139,6 @@ form>div>input:invalid:not(:focus):not(:placeholder-shown)~.error {
 .login-form input[type="email"]:focus,
 .login-form input[type="password"]:focus {
     border-color: var(--primary-color);
-    /* Use theme color for focus */
     outline: none;
 }
 
@@ -158,6 +148,8 @@ form>div>input:invalid:not(:focus):not(:placeholder-shown)~.error {
     justify-content: space-between;
     margin: 30px 0 10px 0;
     width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .keep-me-signed {
@@ -169,7 +161,6 @@ form>div>input:invalid:not(:focus):not(:placeholder-shown)~.error {
 .forgot-password {
     font-size: 0.98rem;
     color: var(--primary-color);
-    /* Use theme color for links */
     text-decoration: none;
 }
 
@@ -177,18 +168,12 @@ form>div>input:invalid:not(:focus):not(:placeholder-shown)~.error {
     text-decoration: underline;
 }
 
-/* Themed sign-in button */
 .signin-btn {
-    /* Add these two lines if they aren't there */
     display: inline-block;
-    /* Allows setting width, padding, etc. */
     text-align: center;
-
-    /* Your existing styles */
     width: 100%;
     padding: 12px 0;
     text-decoration: none;
-    /* Removes the default link underline */
     background: var(--secondary-color);
     color: var(--link-color);
     border: none;
@@ -213,7 +198,6 @@ form>div>input:invalid:not(:focus):not(:placeholder-shown)~.error {
 
 .login-links a {
     color: var(--primary-color);
-    /* Use theme color for links */
     text-decoration: none;
     font-weight: 500;
     transition: text-decoration 0.2s;
@@ -227,7 +211,6 @@ form>div>input:invalid:not(:focus):not(:placeholder-shown)~.error {
     cursor: pointer;
     text-decoration: underline;
     color: var(--primary-color);
-    /* Use theme color for links */
     font-weight: 700;
 }
 
@@ -235,100 +218,41 @@ form>div>input:invalid:not(:focus):not(:placeholder-shown)~.error {
     font-weight: 600;
 }
 
-/* ==================== ANIMATION STYLES FOR SPLIT EFFECT ==================== */
-/* Ensure smooth transitions on panels (added to existing flex rules) */
-.login-container {
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    overflow: hidden;
-    /* Prevent panel overflow during slide */
-}
-
-.login-left,
-.login-right {
-    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.8s ease-out;
-    /* Smooth easing */
-    will-change: transform, opacity;
-    /* Optimize for performance */
-}
-
-/* Trigger classes for splitting */
-.login-container.splitting {
-    opacity: 0.3;
-    /* Fade the whole container */
-    transform: scale(1.05);
-    /* Slight outward zoom for dramatic split */
-}
-
-.split-left {
-    transform: translateX(-50vw) scale(0.9);
-    /* Slide left off-screen, slight shrink */
-    opacity: 0;
-}
-
-.split-right {
-    transform: translateX(50vw) scale(0.9);
-    /* Slide right off-screen, slight shrink */
-    opacity: 0;
-}
-
-/* Optional: Animate body background to match home theme during split */
-body.body-splitting {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    /* Theme-based gradient */
-    transition: background 1s ease-out;
-}
-
-/* Mobile Adjustments: Vertical split for smaller screens */
-@media (max-width: 768px) {
+/* ==================== MOBILE ADJUSTMENTS ==================== */
+/* This code ONLY activates on screens smaller than 900px */
+@media screen and (max-width: 900px) {
     .login-container {
-        min-width: 100vw;
-        min-height: 100vh;
-        gap: 0;
+        flex-direction: column; /* Stack vertically */
+        width: 100%;
+        min-height: auto;
+        gap: 0; /* Remove the 100px gap on mobile so they touch */
+        border-radius: 12px; /* Slightly smaller corners on phone */
     }
 
-    .split-left {
-        transform: translateY(-50vh) scale(0.9);
-        /* Slide up on mobile */
-    }
-
-    .split-right {
-        transform: translateY(50vh) scale(0.9);
-        /* Slide down on mobile */
-    }
-
-    /* Adjust padding for mobile */
-    .login-left,
-    .login-right {
-        padding: 24px 18px;
+    .login-left {
+        padding: 30px 20px;
+        /* Reset borders for stacking */
+        border-right: none;
+        border-bottom: 3px solid var(--secondary-color);
+        border-radius: 12px 12px 0 0;
     }
 
     .login-logo {
-        width: 250px;
+        width: 180px; 
+    }
+
+    .login-title {
+        font-size: 1.5rem;
+    }
+
+    .login-right {
+        padding: 30px 20px;
+        /* Reset borders for stacking */
+        border-left: none;
+        border-radius: 0 0 12px 12px;
+    }
+    
+    .login-form-header h2 {
+        text-align: center;
     }
 }
-
-/* Error message visibility (enhanced from your existing) */
-form>div {
-    position: relative;
-    /* For absolute positioning of errors */
-}
-
-form>div>span.error {
-    display: none;
-    color: red;
-    font-size: 0.8em;
-    position: absolute;
-    bottom: -20px;
-    left: 0;
-}
-
-form>div>input:invalid:not(:focus):not(:placeholder-shown)~span.error {
-    display: block;
-}
-
-#google_translate_element {
-    position: fixed;
-    bottom: 16px;   /* same as bottom-4 */
-    right: 16px;    /* same as right-4 */
-    z-index: 50;    /* same as z-50 */
-  }
