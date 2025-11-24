@@ -1,89 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TM2R DIGIHEALTH Login</title>
     <link rel="stylesheet" href="css/loginpage.css" />
-    <!-- Eto ung css na ginawa ko pra sa login page lng, iba sa main css ko -->
 </head>
-
 <body>
-    <!-- Eto ung main container pra sa buong login page, para ma-center lhat -->
     <div class="login-wrapper">
-        <!-- Eto ung box na may ani mation pag nag-login, may id to pra ma-target ng javascript ko -->
         <div id="login-container" class="login-container">
-            <!-- Left side ng login box - dito ung logo at description ng website -->
             <div class="login-left">
-                <img src="images/Gemini_Generated_Image_f5f0r5f5f0r5f5f0-removebg-preview.png" alt="Logo"
-                    class="login-logo"> <!-- Logo ng TM2R, inalis ko ung background pra mgnda tignan -->
-                <h1 class="login-title">Welcome to TM2R DIGIHEALTH</h1> <!-- Main title -->
+                <img src="images/Gemini_Generated_Image_f5f0r5f5f0r5f5f0-removebg-preview.png" alt="Logo" class="login-logo">
+                <h1 class="login-title">Welcome to TM2R DIGIHEALTH</h1>
                 <p class="login-desc">
                     A website where its purpose is to make the Filipinos be packed with knowledge about different
                     diseases here in the Philippines.
-                </p> <!-- Eto ung description ng website ko, which where I said all of it's purposes -->
+                </p>
             </div>
 
-            <!-- Right side ng login box - dito ung form pra mag-login -->
             <div class="login-right">
                 <div class="login-form-header">
-                    <h2>Sign-in</h2> <!-- Header ng form -->
+                    <h2>Sign-in</h2>
                 </div>
 
-                <!-- Eto ung form mismo, may id to pra ma-target ng javascript ko sa animation -->
                 <form id="login-form" class="login-form" action="html/ho_me.html">
-                    <!-- May fallback action pra kung d gumana javascript, mkaka-redirect prin -->
-                    <!-- Field pra sa email -->
                     <div>
-                        <label for="email">E-mail</label> <!-- Label pra sa email input -->
+                        <label for="email">E-mail</label>
                         <input type="email" id="email" placeholder="Enter your email" required>
-                        <!-- Email input, required pra d pwede blanko -->
                         <span class="error">Please enter your email</span>
-                        <!-- Error message, nkatago muna, lalabas lng pag may error -->
                     </div>
 
-                    <!-- Field pra sa password -->
                     <div>
-                        <label for="password">Password</label> <!-- Label pra sa password -->
+                        <label for="password">Password</label>
                         <input type="password" id="password" placeholder="Enter your password"
                             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" required>
-                        <!-- Password input, may pattern validation pra strong password -->
-                        <span class="error">Please enter a minimum of 8 characters with a mix of Upper/Lower case and a
-                            special character</span> <!-- Requirements ng password, lalabas pag mali format -->
+                        <span class="error">Please enter a minimum of 8 characters with a mix of Upper/Lower case and a special character</span>
                     </div>
 
-                    <!-- Options sa ilalim ng password field -->
                     <div class="login-options">
                         <div>
-                            <input type="checkbox" id="keep-signed-in"> <!-- Checkbox pra ma-remember ung login -->
+                            <input type="checkbox" id="keep-signed-in">
                             <label for="keep-signed-in" class="keep-me-signed">Keep me signed in</label>
-                            <!-- Label ng checkbox -->
                         </div>
                         <a href="#" class="forgot-password">Forgot password?</a>
-                        <!-- Link pra sa forgot password, wla pa to functionality -->
                     </div>
 
-                    <!-- Submit button pra mag-login -->
                     <button type="submit" class="signin-btn">Sign In</button>
-                    <!-- Eto ung button na mag-ttrigger ng animation -->
                 </form>
 
-                <!-- Additional links sa ilalim ng form -->
                 <div class="login-links">
                     <span>
                         Sign in as a <a href="html/homeguest.html" class="guest-link">Guest</a>
-                        <!-- Option pra mg-browse as guest, limited access lng -->
                     </span>
                     <span>
                         Don't have an account? <a href="html/account.html" class="create-link">Create one</a>
-                        <!-- Link papunta sa registration page -->
                     </span>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
-
 </html>
