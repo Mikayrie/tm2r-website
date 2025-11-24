@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Dito yung mga basic settings ng webpage natin pare -->
+    <meta charset="UTF-8" />
+    <!-- Important to for mobile responsiveness, para maganda tingnan sa phone -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title ng page na lalabas sa browser tab -->
+    <title>TM2R - Arthritis</title>
+    <!-- Link sa CSS file natin for styling -->
+    <link rel="stylesheet" href="../css/tm2r-style.css" />
+</head>
+
+<body>
+
+<!-- Eto yung mga hidden checkboxes na ginagamit natin para sa mobile navigation -->
+<!-- Parehong nakatago pero sila yung nagcocontrol kung visible ang mga menu -->
+
+<!-- Checkbox para sa navigation menu (kanan) -->
+<input type="checkbox" id="nav-toggle" />
+<!-- Overlay na madilim na background - kapag pinindot, sarado ang navigation menu -->
+<label for="nav-toggle" class="nav-overlay"></label>
+
+<!-- Checkbox para sa sidebar menu (kaliwa) -->
+<input type="checkbox" id="sidebar-toggle" />
+<!-- Overlay na madilim na background - kapag pinindot, sarado ang sidebar menu -->
+<label for="sidebar-toggle" class="overlay"></label>
+    
+    <!-- Eto yung header section ng website namin -->
+    <header>
+        <!-- And this is the Container para sa logo at hamburger menu -->
+        <div class="header-left">
+            <!-- Hamburger icon for sidebar toggle (mobile view) -->
+            <label for="sidebar-toggle" class="sidebar-icon">&#9776;</label>
+            <!-- Main title ng website -->
+            <h1>TM2R DIGIHEALTH</h1>
+        </div>
+        
+        <!-- Search bar para makapag-search ng diseases -->
+        <form action="#" class="search-bar">
+            <input type="text" placeholder="Search diseases..." name="q" />
+            <button type="submit">Search</button>
+        </form>
+<label for="nav-toggle" class="menu-icon">&#9776;</label>
+        
+        <!-- ADD THIS LINE - Right hamburger icon for navigation -->
+        
+        <!-- Navigation menu for main pages ng website -->
+        <nav>
+            <a href="ho_me.html">Home</a>
+            <a href="homie.html">Diseases</a>
+            <a href="about-us.html">About</a>
+            <a href="CONTACT US.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Sidebar for categories ng mga diseases -->
+    <aside>
+        <section>
+            <h2>Categories</h2>
+            <ul>
+                <!-- First category: Infectious Diseases -->
+                <li>
+                    <!-- Checkbox for dropdown functionality -->
+                    <input type="checkbox" id="infectious-diseases" class="dropdown-toggle" />
+                    <!-- Label for the dropdown with arrow icon -->
+                    <label for="infectious-diseases" class="dropdown-link">Infectious Diseases <span
+                            class="arrow">&#9660;</span></label>
+                    <!-- Dropdown content - list of infectious diseases -->
+                    <ul class="TM2R-dropdown-content">
+                        <li><a href="bird-flu.html">Bird flu</a></li>
+                        <li><a href="chickenpox.html">Chickenpox</a></li>
+                        <li><a href="cholera.html">Cholera</a></li>
+                        <li><a href="conjunctivitis.html">Conjunctivitis</a></li>
+                        <li><a href="dengue-fever.html">Dengue Fever</a></li>
+                        <li><a href="diarrhea.html">Diarrhea</a></li>
+                        <li><a href="fungi.html">Fungi</a></li>
+                        <li><a href="gastroenteritis.html">Gastroenteritis</a></li>
+                        <li><a href="hepatitis.html">Hepatitis</a></li>
+                        <li><a href="hiv.html">HIV</a></li>
+                        <li><a href="influenza.html">Influenza</a></li>
+                        <li><a href="leptospirosis.html">Leptospirosis</a></li>
+                        <li><a href="malaria.html">Malaria</a></li>
+                        <li><a href="measles.html">Measles</a></li>
+                        <li><a href="mononucleosis.html">Mononucleosis</a></li>
+                        <li><a href="pneumonia.html">Pneumonia</a></li>
+                        <li><a href="polio.html">Polio</a></li>
+                        <li><a href="rabies.html">Rabies</a></li>
+                        <li><a href="scabies.html">Scabies</a></li>
+                        <li><a href="stis.html">STIs</a></li>
+                        <li><a href="tuberculosis.html">Tuberculosis</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Second category: Lifestyle Diseases -->
+                <li>
+                    <!-- Checkbox for dropdown functionality -->
+                    <input type="checkbox" id="lifestyle-diseases" class="dropdown-toggle" />
+                    <!-- Label for the dropdown with arrow icon -->
+                    <label for="lifestyle-diseases" class="dropdown-link">Lifestyle Diseases<span
+                            class="arrow">&#9660;</span></label>
+                    <!-- Dropdown content - list of lifestyle diseases -->
+                    <ul class="TM2R-dropdown-content">
+                        <li><a href="arthritis.html">Arthritis</a></li>
+                        <li><a href="asthma.html">Asthma</a></li>
+                        <li><a href="back-pain.html">Back pain</a></li>
+                        <li><a href="cancer.html">Cancer</a></li>
+                        <li><a href="copd.html">COPD</a></li>
+                        <li><a href="depression.html">Depression</a></li>
+                        <li><a href="diabetes.html">Diabetes</a></li>
+                        <li><a href="epilepsy.html">Epilepsy</a></li>
+                        <li><a href="gout.html">Gout</a></li>
+                        <li><a href="headache.html">Headache</a></li>
+                        <li><a href="heart-disease.html">Heart disease</a></li>
+                        <li><a href="high-cholesterol.html">High cholesterol</a></li>
+                        <li><a href="hypertension.html">Hypertension</a></li>
+                        <li><a href="kidney-disease.html">Kidney disease</a></li>
+                        <li><a href="obesity.html">Obesity</a></li>
+                        <li><a href="stroke.html">Stroke</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </aside>
+
+    <!-- Main content area ng page, dito yung importanteng information -->
+    <main>
+        <!-- Introduction section for Asthma, ginawa ko to para sa overview -->
+        <div class="intro">
+            <h2>Asthma</h2>
+            <!-- General description ng disease na ginawa ko -->
+            <p>Asthma is a major noncommunicable disease (NCD), affecting both children and adults. It is a chronic
+                disease of the air passages of the lungs which causes inflammation and narrowing of the airways. This
+                makes breathing difficult and can lead to symptoms like coughing, wheezing, shortness of breath and
+                chest tightness.</p>
+         <div class="video-container">
+            <!-- Video container for educational video about Asthma -->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/batzSytA1Y0?si=kZryUpPlWHZ8VsTP"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <!-- Section for detailed disease information, ginawa ko to para organized -->
+        <section class="disease-details">
+            <!-- First article: Symptoms of Asthma -->
+            <article class="fact-sheet">
+                <h3>Symptoms</h3>
+                <p>Asthma symptoms vary from person to person. You may have infrequent asthma attacks, have symptoms
+                    only at certain times — such as when exercising — or have symptoms all the time. Common signs are:
+                </p>
+                <ul>
+                    <li>Shortness of breath.</li>
+                    <li>Chest tightness or pain.</li>
+                    <li>Wheezing when exhaling, which is a common sign of asthma in children.</li>
+                    <li>Trouble sleeping caused by shortness of breath, coughing or wheezing.</li>
+                </ul>
+            </article>
+
+            <!-- Second article: Causes and Risk Factors, ginawa ko to para malaman causes -->
+            <article class="fact-sheet">
+                <h3>Causes and Risk Factors</h3>
+                <p>The fundamental causes of asthma are not completely understood. The strongest risk factors for
+                    developing asthma are a combination of genetic predisposition with environmental exposure to inhaled
+                    substances and particles that may provoke allergic reactions or irritate the airways (World Health
+                    Organization, 2024).</p>
+                <ul>
+                    <li><b>Allergens:</b> Indoor allergens (e.g., house dust mites, pollens) and outdoor allergens.</li>
+                    <li><b>Irritants:</b> Tobacco smoke and chemical irritants in the workplace.</li>
+                    <li><b>Other Triggers:</b> Cold air, extreme emotional arousal such as anger or fear, and physical
+                        exercise.</li>
+                </ul>
+            </article>
+
+            <!-- Third article: Prevention and Management, ginawa ko to for solutions -->
+            <article class="fact-sheet">
+                <h3>Prevention and Management</h3>
+                <p>Asthma is a chronic condition with no cure. The goal of asthma management is to control the disease.
+                    This allows people to live a normal, active life. Management involves avoiding triggers and using
+                    medications.</p>
+                <ul>
+                    <li><b>Avoiding Triggers:</b> Identifying and avoiding things that trigger asthma symptoms is a key
+                        part of management.</li>
+                    <li><b>Medications:</b> Inhaled medicines are essential. These include relievers (to open the
+                        airways and relieve symptoms) and controllers (to reduce inflammation in the airways).</li>
+                    <li><b>Action Plan:</b> Working with a healthcare provider to create a personal asthma action plan.
+                    </li>
+                </ul>
+            </article>
+
+            <!-- Fourth article: Citation for sources, ginawa ko to for credibility -->
+            <article class="fact-sheet">
+                <h3>Citation</h3>
+                <p>The information provided on this page is sourced from the World Health Organization (WHO). For more
+                    comprehensive details, please refer to the official fact sheet.</p>
+                <a href="https://www.who.int/news-room/fact-sheets/detail/asthma" target="_blank">
+                    <i>World Health Organization. (2024, May 06). Asthma</i>. WHO.
+            </article>
+        </section>
+        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </main>
+
+    <!-- Google Translate widget para ma-translate yung page sa ibang languages -->
+    <div id="google_translate_element"></div>
+
+    <!-- JavaScript code para sa Google Translate functionality, ginawa ko to for translation -->
+    <script type="text/javascript">
+        // Function na nag-iinitialize ng Google Translate
+        function googleTranslateElementInit() {
+            // Dito naka-set yung default language at layout ng translator
+            new google.translate.TranslateElement(
+                { pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL },
+                'google_translate_element'
+            );
+        }
+    </script>
+    
+    <!-- External script from Google para sa translation -->
+</body>
+
+</html>

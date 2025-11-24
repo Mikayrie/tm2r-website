@@ -1,0 +1,70 @@
+/* Add these variables at the top */
+:root {
+  --primary-color: #004d80; /* Dark Blue */
+  --secondary-color: #1a6bd4; 
+  --light-bg: #fdfdf5; /* Light Beige Body */
+  --card-bg: #ffffff; /* Using white for the form area for better readability */
+  --text-color: #333;
+  --link-color: #fff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: var(--light-bg); /* Use theme background */
+}
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-bg); /* Use theme background */
+}
+
+.signin-container {
+  display: flex;
+  min-width: 800px;
+  min-height: 600px;
+  position: relative;
+  gap: 100px;
+  background: transparent; 
+  padding: 0;
+
+  /* Styles for the outer container */
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  overflow: hidden; 
+}
+.signin-left,
+.signin-right {
+  flex: 1 1 0;
+  padding: 48px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* Themed decorative panel */
+.signin-left {
+  background: var(--primary-color); /* Use theme's primary blue */
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  
+  /* --- BORDER FOR LEFT PANEL --- */
+  border-right: 3px solid var(--secondary-color);
+}
+form > div > span.error {
+  display: none;
+  font-size: 0.8em;
+  position: absolute;
+}
+form > div >input:invalid:not(:focus):not(:placeholder-shown) ~ .error {
+  display: block;
+  color: red;
+}
+
+#google_translate_element {
+    position: fixed;
+    bottom: 16px;   /* same as bottom-4 */
+    right: 16px;    /* same as right-4 */
+    z-index: 50;    /* same as z-50 */
+  }

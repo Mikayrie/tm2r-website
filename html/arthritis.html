@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Dito yung mga basic settings ng webpage natin pare -->
+    <meta charset="UTF-8" />
+    <!-- Important to for mobile responsiveness, para maganda tingnan sa phone -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title ng page na lalabas sa browser tab -->
+    <title>TM2R - Arthritis</title>
+    <!-- Link sa CSS file natin for styling -->
+    <link rel="stylesheet" href="../css/tm2r-style.css" />
+</head>
+
+<body>
+    <!-- Eto yung header section ng website natin -->
+    <header>
+        <!-- Container para sa logo at hamburger menu -->
+        <div class="Ulo-nga-nakaigid">
+            <!-- Hamburger icon for sidebar toggle (mobile view) -->
+            <label for="sidebar-toggle" class="sidebar-icon">&#9776;</label>
+            <!-- Main title ng website -->
+            <h1>TM2R DIGIHEALTH</h1>
+        </div>
+
+        <!-- Search bar para makapag-search ng diseases -->
+        <form action="#" class="search-bar">
+            <input type="text" placeholder="Search diseases..." name="q" />
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- Navigation menu for main pages ng website -->
+        <nav>
+            <a href="ho_me.html">Home</a>
+            <a href="homie.html">Diseases</a>
+            <a href="about-us.html">About</a>
+            <a href="CONTACT US.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Sidebar for categories ng mga diseases -->
+    <aside>
+        <section>
+            <h2>Categories</h2>
+            <ul>
+                <!-- First category: Infectious Diseases -->
+                <li>
+                    <!-- Checkbox for dropdown functionality -->
+                    <input type="checkbox" id="infectious-diseases" class="dropdown-toggle" />
+                    <!-- Label for the dropdown with arrow icon -->
+                    <label for="infectious-diseases" class="dropdown-link">Infectious Diseases <span
+                            class="arrow">&#9660;</span></label>
+                    <!-- Dropdown content - list of infectious diseases -->
+                    <ul class="TM2R-dropdown-content">
+                        <li><a href="bird-flu.html">Bird flu</a></li>
+                        <li><a href="chickenpox.html">Chickenpox</a></li>
+                        <li><a href="cholera.html">Cholera</a></li>
+                        <li><a href="conjunctivitis.html">Conjunctivitis</a></li>
+                        <li><a href="dengue-fever.html">Dengue Fever</a></li>
+                        <li><a href="diarrhea.html">Diarrhea</a></li>
+                        <li><a href="fungi.html">Fungi</a></li>
+                        <li><a href="gastroenteritis.html">Gastroenteritis</a></li>
+                        <li><a href="hepatitis.html">Hepatitis</a></li>
+                        <li><a href="hiv.html">HIV</a></li>
+                        <li><a href="influenza.html">Influenza</a></li>
+                        <li><a href="leptospirosis.html">Leptospirosis</a></li>
+                        <li><a href="malaria.html">Malaria</a></li>
+                        <li><a href="measles.html">Measles</a></li>
+                        <li><a href="mononucleosis.html">Mononucleosis</a></li>
+                        <li><a href="pneumonia.html">Pneumonia</a></li>
+                        <li><a href="polio.html">Polio</a></li>
+                        <li><a href="rabies.html">Rabies</a></li>
+                        <li><a href="ringworm.html">Ringworm</a></li>
+                        <li><a href="scabies.html">Scabies</a></li>
+                        <li><a href="stis.html">STIs</a></li>
+                        <li><a href="tuberculosis.html">Tuberculosis</a></li>
+                        <li><a href="uti.html">Urinary Tract Infection (UTI)</a></li>
+                        <li><a href="warts.html">Warts</a></li>
+                    </ul>
+                </li>
+
+                <!-- Second category: Lifestyle Diseases -->
+                <li>
+                    <!-- Checkbox for dropdown functionality -->
+                    <input type="checkbox" id="lifestyle-diseases" class="dropdown-toggle" />
+                    <!-- Label for the dropdown with arrow icon -->
+                    <label for="lifestyle-diseases" class="dropdown-link">Lifestyle Diseases<span
+                            class="arrow">&#9660;</span></label>
+                    <!-- Dropdown content - list of lifestyle diseases -->
+                    <ul class="TM2R-dropdown-content">
+                        <li><a href="arthritis.html">Arthritis</a></li>
+                        <li><a href="asthma.html">Asthma</a></li>
+                        <li><a href="back-pain.html">Back pain</a></li>
+                        <li><a href="cancer.html">Cancer</a></li>
+                        <li><a href="copd.html">COPD</a></li>
+                        <li><a href="cough.html">Cough</a></li>
+                        <li><a href="depression.html">Depression</a></li>
+                        <li><a href="diabetes.html">Diabetes</a></li>
+                        <li><a href="epilepsy.html">Epilepsy</a></li>
+                        <li><a href="gout.html">Gout</a></li>
+                        <li><a href="headache.html">Headache</a></li>
+                        <li><a href="heart-disease.html">Heart disease</a></li>
+                        <li><a href="high-cholesterol.html">High cholesterol</a></li>
+                        <li><a href="hypertension.html">Hypertension</a></li>
+                        <li><a href="kidney-disease.html">Kidney disease</a></li>
+                        <li><a href="obesity.html">Obesity</a></li>
+                        <li><a href="stroke.html">Stroke</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </aside>
+
+    <!-- Main content area ng page -->
+    <main>
+        <!-- Introduction section for Arthritis -->
+        <div class="intro">
+            <h2>Rheumatoid Arthritis</h2>
+            <!-- General description ng disease -->
+            <p>Rheumatoid arthritis (RA) is a chronic autoimmune disease that primarily causes inflammation, pain,
+                swelling, and stiffness in the joints. It typically affects the hands, feet and knees. In RA, the body's
+                immune system mistakenly attacks healthy cells in the joints, leading to damage and disability if not
+                treated.</p>
+
+            <!-- Video container for educational video about Arthritis -->
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/jeOZixiLGqY?si=6Eej2UoXOxC7ZtTM"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Section for detailed disease information -->
+        <section class="disease-details">
+            <!-- First article: Symptoms of Arthritis -->
+            <article class="fact-sheet">
+                <h3>Symptoms</h3>
+                <p>The main symptoms of rheumatoid arthritis are joint pain, swelling, and stiffness. It may also cause
+                    more general symptoms and inflammation in other parts of the body.</p>
+                <ul>
+                    <li>Tender, warm, swollen joints, often affecting smaller joints first.</li>
+                    <li>Joint stiffness that is usually worse in the mornings and after inactivity.</li>
+                    <li>Fatigue, fever and loss of appetite.</li>
+                    <li>Symptoms often affect the same joints on both sides of the body (symmetrically).</li>
+                </ul>
+            </article>
+
+            <!-- Second article: Causes and Risk Factors -->
+            <article class="fact-sheet">
+                <h3>Causes and Risk Factors</h3>
+                <p>RA is an autoimmune disease where the immune system attacks the synovium — the lining of the
+                    membranes that surround the joints. The exact cause is unknown, but a combination of genetic and
+                    environmental factors is thought to be involved (World Health Organization, 2023).</p>
+                <ul>
+                    <li><b>Genetic Susceptibility:</b> Some people may inherit genes that make them more likely to
+                        develop RA.</li>
+                    <li><b>Environmental Triggers:</b> Factors such as smoking and certain infections may trigger the
+                        disease in genetically susceptible people.</li>
+                    <li><b>Hormonal Factors:</b> RA is more common in women than men, suggesting hormones may play a
+                        role.</li>
+                </ul>
+            </article>
+
+            <!-- Third article: Prevention and Management -->
+            <article class="fact-sheet">
+                <h3>Prevention and Management</h3>
+                <p>There is no cure for RA, but early diagnosis and treatment can control the disease and prevent joint
+                    damage and disability. Management includes medications, self-management strategies, and lifestyle
+                    changes.</p>
+                <ul>
+                    <li><b>Medications:</b> Disease-modifying antirheumatic drugs (DMARDs) and biologics can slow the
+                        disease and prevent joint deformity.</li>
+                    <li><b>Physical Therapy:</b> Exercises can help keep joints flexible and strengthen muscles.</li>
+                    <li><b>Lifestyle:</b> Regular physical activity, maintaining a healthy weight, and quitting smoking
+                        can help manage the condition.</li>
+                </ul>
+            </article>
+
+            <!-- Fourth article: Citation for sources -->
+            <article class="fact-sheet">
+                <h3>Citation</h3>
+                <p>The information provided on this page is sourced from the World Health Organization (WHO). For more
+                    comprehensive details, please refer to the official fact sheet.</p>
+
+                <a href="https://www.who.int/news-room/fact-sheets/detail/rheumatoid-arthritis" target="_blank">
+                    World Health Organization. (2023, August 18). <i>Rheumatoid arthritis</i>. WHO.
+            </article>
+        </section>
+
+        <!-- Google Translate widget para ma-translate yung page sa ibang languages -->
+        <div id="google_translate_element"></div>
+
+        <!-- JavaScript code para sa Google Translate functionality -->
+        <script type="text/javascript">
+            // Function na nag-iinitialize ng Google Translate
+            function googleTranslateElementInit() {
+                // Dito naka-set yung default language at layout ng translator
+                new google.translate.TranslateElement(
+                    { pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL },
+                    'google_translate_element'
+                );
+            }
+        </script>
+
+        <!-- External script from Google para sa translation -->
+        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </main>
+</body>
+
+</html>

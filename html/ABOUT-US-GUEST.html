@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TM2R - About Us</title>
+    <link rel="stylesheet" href="../css/tm2r-style.css" /> <!-- Eto ung main css file ko na ginamit pra sa styling -->
+</head>
+
+<body>
+<input type="checkbox" id="nav-toggle" />
+<label for="nav-toggle" class="nav-overlay"></label>
+
+<input type="checkbox" id="sidebar-toggle" />
+<label for="sidebar-toggle" class="overlay"></label>
+    <!-- Header section - d2 lhat ng navigation at search -->
+    <header>
+        <div class="header-left">
+            <label for="sidebar-toggle" class="sidebar-icon">&#9776;</label> <!-- Hamburger icon pra sa mobile -->
+            <h1>TM2R DIGIHEALTH</h1> <!-- Website title -->
+            <div class="guest-notice">
+            ⚠️ <strong>Guest User</strong> <!-- Notice pra sa guest users, nkacenter sa header -->
+            </div> team
+        </div>
+        <!-- Search bar pra maghanap ng diseases -->
+        <form action="#" class="search-bar">
+            <input type="text" placeholder="Search diseases..." name="q" /> <!-- Search input field -->
+            <button type="submit">Search</button> <!-- Search button -->
+        Is</form>
+<label for="nav-toggle" class="menu-icon">&#9776;</label>
+        <!-- Main navigation menu -->
+        <nav>
+            <a href="homeguest.html">Home</a>
+            <a href="signinguest.html">Diseases</a>
+            <a href="about-us-guest.html">About</a> <!-- Current page -->
+            <a href="CONTACT US.html">Contact</a>
+        </nav>
+    </header>
+    
+    <!-- Sidebar - d2 ung categories ng mga diseases -->
+    <aside>
+        <section>
+            <h2>Categories</h2> <!-- Section title -->
+            <ul>
+                <!-- Infectious Diseases dropdown -->
+                <li>
+                    <input type="checkbox" id="infectious-diseases" class="dropdown-toggle" /> <!-- Checkbox hack pra sa dropdown -->
+                    <label for="infectious-diseases" class="dropdown-link">Infectious Diseases <span
+                            class="arrow">&#9660;</span></label> <!-- Dropdown trigger with arrow -->
+                    <ul class="TM2R-dropdown-content">
+                        <!-- Listahan ng infectious diseases -->
+                        <li><a href="bird-flu.html" class="basahin-mopa-ako-btn">Bird flu</a></li>
+                        <li><a href="chickenpox.html" class="basahin-mopa-ako-btn">Chickenpox</a></li>
+                        <li><a href="cholera.html" class="basahin-mopa-ako-btn">Cholera</a></li>
+                        <!-- ... iba pang diseases ... -->
+                        <!-- Notice: basahin-mopa-ako-btn class pra mag-trigger ng modal -->
+                    </ul>
+                </li>
+                
+                <!-- Lifestyle Diseases dropdown -->
+                <li>
+                    <input type="checkbox" id="lifestyle-diseases" class="dropdown-toggle" />
+                    <label for="lifestyle-diseases" class="dropdown-link">Lifestyle Diseases<span
+                            class="arrow">&#9660;</span></label>
+                    <ul class="TM2R-dropdown-content">
+                        <!-- Listahan ng lifestyle diseases -->
+                        <li><a href="arthritis.html" class="basahin-mopa-ako-btn">Arthritis</a></li>
+                        <li><a href="asthma.html" class="basahin-mopa-ako-btn">Asthma</a></li>
+                        <!-- ... iba pang diseases ... -->
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </aside>
+
+    <!-- Main content area - d2 ung about us content -->
+    <main>
+        <!-- Introduction section -->
+        <div class="intro">
+            <h2>Our Story</h2> <!-- Section title -->
+            <p>We are a team of ambitious first-year BSIT students who created TM2R DIGIHEALTH. Our goal was to build a
+                clean, reliable, and easy-to-navigate resource for health information, using data sourced directly from
+                the World Health Organization. This project represents our passion for technology and our desire to make
+                a positive impact. Meet the team that made it happen.</p> <!-- Description ng team -->
+        </div>
+
+        <!-- Profile grid - d2 ung mga profile cards ng team members -->
+        <div class="profile-grid">
+            <!-- Tristan's profile card -->
+            <div class="profile-card">
+                <img src="../images/tristan.jpg" alt="Profile Picture of Tristan Galutan" class="profile-img"> <!-- Profile picture -->
+                <h1>Tristan Galutan</h1> <!-- Name -->
+                <p class="bio">
+                    As the Project Leader, Tristan helped guide the team's overall direction and was responsible for the
+                    initial research and verification of the health data, ensuring the information presented is accurate
+                    and trustworthy.
+                </p> <!-- Bio description -->
+                <div class="info-table">
+                    <table>
+                        <tr>
+                            <th>Hobbies</th> <!-- Table header -->
+                            <th>Skills</th> <!-- Table header -->
+                        </tr>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li>Fact-checking</li> <!-- Hobby 1 -->
+                                    <li>Reading Medical Journals</li> <!-- Hobby 2 -->
+                                    <li>Writing</li> <!-- Hobby 3 -->
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Project Oversight</li> <!-- Skill 1 -->
+                                    <li>Research & Analysis</li> <!-- Skill 2 -->
+                                    <li>Content Verification</li> <!-- Skill 3 -->
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Mikayrie's profile card (ako to!) -->
+            <div class="profile-card">
+                <img src="../images/kayrie.webp" alt="Profile Picture of Mikayrie D. Dulay" class="profile-img"> <!-- My actual picture -->
+                <h1>Mikayrie D. Dulay</h1> <!-- My name -->
+                <p class="bio">
+                    Hello! As the Co-Leader and Lead Developer, I designed the core concept and architecture of TM2R
+                    DIGIHEALTH. I developed the main website structure, created the individual disease pages, and
+                    integrated all the content.
+                </p> <!-- My bio - ako gumawa ng mostly ng website -->
+                <div class="info-table">
+                    <table>
+                        <tr>
+                            <th>Hobbies</th>
+                            <th>Skills</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li>Playing Online Games</li> <!-- My hobbies -->
+                                    <li>Singing & Dancing</li>
+                                    <li>Watching Anime</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Lead Web Development</li> <!-- My skills -->
+                                    <li>Project Co-Leadership</li>
+                                    <li>UI/UX Design</li>
+                                    <li>Content Strategy</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Richelle's profile card -->
+            <div class="profile-card">
+                <img src="../images/riri.webp" alt="Profile Picture of Richelle Baniago" class="profile-img">
+                <h1>Richelle Baniago</h1>
+                <p class="bio">
+                    Hello! I'm Richelle. I collaborated on building the site's interactive features. My primary
+                    contribution was developing the user-friendly "Create an Account" page, ensuring a smooth
+                    registration process for new users.
+                </p> <!-- Richelle's contribution -->
+                <div class="info-table">
+                    <table>
+                        <tr>
+                            <th>Hobbies</th>
+                            <th>Skills</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li>Reading Tech Blogs</li>
+                                    <li>Hiking</li>
+                                    <li>Photography</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Frontend Development</li>
+                                    <li>Web Form Design</li>
+                                    <li>Team Collaboration</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Raven's profile card -->
+            <div class="profile-card">
+                <img src="../images/rayven.webp" alt="Profile Picture of Raven Villaver" class="profile-img">
+                <h1>Raven Villaver</h1>
+                <p class="bio">
+                    Hi, I'm Raven. I worked on the user authentication components of the website. I focused on building
+                    the "Login" page, contributing to the system that allows users to securely access their accounts.
+                </p> <!-- Raven's contribution -->
+                <div class="info-table">
+                    <table>
+                        <tr>
+                            <th>Hobbies</th>
+                            <th>Skills</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li>Coding Challenges</li>
+                                    <li>Building Robots</li>
+                                    <li>Chess</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>User Authentication Logic</li>
+                                    <li>Collaborative Coding</li>
+                                    <li>Problem Solving</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- Google Translate widget -->
+        <div id="google_translate_element"></div>
+
+        <!-- Google Translate script -->
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement(
+                    { pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL },
+                    'google_translate_element'
+                );
+            }
+        </script>
+        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </main>
+</body>
+
+<!-- Modal for guest users - lalabas pag pinindot ung disease links -->
+<div id="account-modalTM2R" class="modalTM2R">
+    <div class="modalTM2R-content">
+        <span class="modalTM2R-close">&times;</span> <!-- Close button -->
+        <p>Please log-in to continue exploring more detailed health information.</p> <!-- Message -->
+        <button id="modal-ok-btn">OK</button> <!-- OK button -->
+    </div>
+</div>
+
+<!-- JavaScript for modal functionality -->
+<script>
+    // Add click event to all disease links with basahin-mopa-ako-btn class
+    document.querySelectorAll('.basahin-mopa-ako-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent navigation to disease page
+            const modal = document.getElementById('account-modalTM2R');
+            modal.style.display = 'flex'; // Show modal
+            document.body.classList.add('modalTM2R-active'); // Add blur effect
+        });
+    });
+
+    // OK button functionality - redirect to login page
+    document.getElementById('modal-ok-btn').addEventListener('click', () => {
+        document.getElementById('account-modalTM2R').style.display = 'none'; // Hide modal
+        document.body.classList.remove('modalTM2R-active'); // Remove blur
+        setTimeout(() => window.location.href = 'LOGIN PAGE.html', 300); // Redirect after delay
+    });
+
+    // Close button functionality
+    document.querySelector('.modalTM2R-close').addEventListener('click', () => {
+        document.getElementById('account-modalTM2R').style.display = 'none';
+        document.body.classList.remove('modalTM2R-active');
+    });
+
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+        const modal = document.getElementById('account-modalTM2R');
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            document.body.classList.remove('modalTM2R-active');
+        }
+    });
+</script>
+
+</html>

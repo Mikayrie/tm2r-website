@@ -1,0 +1,824 @@
+/* --- Unified Global & Reset (Merged from all files) --- */
+
+/* Dito ko sa :root nilagay lahat ng global variables ko. Prang shortcuts para sa mga kulay, anino, atbp.
+para isang palitan lang dito, buong site ma-update. Mas malinis at madali i-maintain. */
+:root {
+    --primary-color: #004d80;       /* Eto ung main color na ginamit ko, dark blue. */
+    --secondary-color: #006ab1;     /* Pangalawang kulay, medyo lighter blue, pra sa mga links or buttons. */
+    --light-bg: #fdfdf5;            /* Background color pra sa body, para d masakit sa mata. */
+    --card-bg: #ffffff;             /* Background ng mga card, puti lang para lumitaw. */
+    --text-color: #333;             /* Kulay ng mga text or sulat. */
+    --link-color: #fff;             /* Kulay ng text sa loob ng links/buttons. */
+    --error-color: #ff0000;         /* Pra sa mga error messages, kulay pula. */
+    --border-color: #ddd;           /* Kulay ng mga border. */
+    --shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Epekto na anino pra sa mga box, para mukhang nkalutang. */
+    --red-border: 4px solid var(--secondary-color); /* Isang specific na border style na inuulit ko. */
+}
+
+/* Style pra sa "Basahin Mo Pa Ako" button. Ginagamit ko ung variables sa taas. */
+.basahin-mopa-ako-btn {
+    background: var(--secondary-color); /* Eto ung kulay nya, galing sa variable ko sa taas. */
+    color: var(--link-color);           /* Kulay ng text sa loob, puti. */
+    padding: 8px 15px;                  /* Eto ung space sa loob ng button para di dikit ung text. */
+    border: none;                       /* Tinanggal ko ung pangit na default border ng button. Kung wala to, may border yan. */
+    border-radius: 5px;                 /* Para medyo bilog ung kanto nya. */
+    cursor: pointer;                    /* Para maging kamay ung mouse pag tinapat, sign na clickable. */
+    margin-top: 15px;                   /* Space sa taas nya para di dikit sa text. */
+    transition: background 0.3s;        /* Para smooth ung pagbabago ng kulay pag hinover. Kung wala to, bigla lang mag-iiba, pangit. */
+    font-size: 1rem;                    /* Laki ng font. */
+    font-family: inherit;               /* Para kunin nya ung font ng body, para pare-pareho. */
+}
+
+/* Eto ung pinaka-background o overlay pag lumabas ung modal. Nkatago by default. */
+.modalTM2R {
+    display: none;                      /* Nakatago muna, lalabas lang via JS. Kung 'block' to, lalabas agad pag load ng page. */
+    position: fixed;                    /* Ginawa kong fixed pra kahit mag-scroll ka, andyan pa din sya sa screen. */
+    z-index: 9999;                      /* Sobrang taas ng z-index pra siguradong nsa ibabaw sya ng lahat ng elements. */
+    left: 0;                            /* Dinikit ko sa lahat ng gilid ng screen. */
+    top: 0;
+    width: 100%;                        /* Sakop buong screen. */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Medyo transparent na itim. */
+    backdrop-filter: blur(5px);         /* Eto ung nagpapablur sa likod nya, cool effect. Kung wala to, didilim lang ung likod pero di blurred. */
+    justify-content: center;            /* Flexbox properties to para i-center ung laman nya (yung modal content). */
+    align-items: center;
+}
+
+/* Eto nman ung mismong box o content ng modal. */
+.modalTM2R-content {
+    position: relative;                 /* Kailangan 'to para gumana ung position:absolute ng close button sa loob. */
+    background: white;
+    padding: 2rem 2.5rem;              /* Malaking padding para spacious tignan */
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Anino pra lumutang tingnan. */
+    max-width: 400px;                   /* May max width para di masyadong malaki sa desktop. */
+    width: 90%;                         /* Responsive, 90% ng screen sa mobile. */
+}
+
+/* Style pra sa "X" button na pang-close ng modal. */
+.modalTM2R-close {
+    position: absolute;                 /* Para ma-position sya sa sulok ng modal-content, hindi sa sulok ng buong screen. */
+    top: 10px;
+    right: 10px;
+    font-size: 1.4rem;                 /* Malaki ung X para madaling makita */
+    font-weight: bold;                  /* Pampataba ng font */
+    background: none;                   /* Walang background. */
+    border: none;                       /* Walang border. */
+    color: #666;                        /* Kulay gray para subtle */
+    cursor: pointer;                    /* Kamay pointer pag hinover */
+    line-height: 1;                     /* Para walang extra space sa paligid */
+    transition: color 0.2s ease;        /* Smooth color change */
+}
+
+/* Pag npindot ung close button, magiging pula ung kulay. User feedback. */
+.modalTM2R-close:active {
+    color: #ff0000;                     /* Pula pag pinipindot */
+}
+
+/* Style pra sa OK button sa loob ng modal. Halos kpareho ng .basahin-mopa-ako-btn */
+#modal-ok-btn {
+    background: var(--secondary-color);
+    color: var(--link-color);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;                   /* Space sa taas para di dikit sa text */
+    transition: background 0.3s;        /* Smooth color transition */
+    font-size: 1rem;
+    font-family: inherit;               /* Inherit font from parent */
+}
+
+/* Kapag lumabas na ung modal, nilagyan ko ng class ung body para ma-trigger tong style. */
+body.modalTM2R-active main,
+body.modalTM2R-active header,
+body.modalTM2R-active aside {
+    filter: blur(5px);                  /* Eto ung nag-apply ng blur effect sa likod. */
+    pointer-events: none;               /* Para hindi mo pwedeng i-click ung mga nsa likod pag nka-modal. Importante to. */
+    user-select: none;                  /* D mo rin pwede i-highlight or kopyahin ung text sa likod. */
+}
+
+/* Universal selector. Nireset ko dito lhat ng default margin at padding para consistent sa lahat ng browser. */
+* {
+    margin: 0;                          /* Zero margin para walang unwanted spaces */
+    padding: 0;                         /* Zero padding din */
+    box-sizing: border-box;             /* Ginawa kong border-box pra mas mdali mag-layout, kasama na padding at border sa total width/height. Kung wala to, magugulo sukat ko. */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Default na font style na ginamit ko. */
+}
+
+/* Layout ng buong page. CSS Grid ung ginamit ko dito para sa main structure. */
+body {
+    display: grid;                      /* CSS Grid gamit ko for layout */
+    grid-template-areas:                /* Dito ko denifine ung layout, prang drawing lang. */
+        "header header"
+        "sidebar main";
+    grid-template-rows: auto 1fr;      /* Ung header, auto height, ung main, aakop sa natitirang space. */
+    grid-template-columns: 250px 1fr;  /* Fixed ung width ng sidebar ko, tapos ung main, bahala na sa space. */
+    min-height: 100vh;                 /* Para sure na buong height ng screen ang sakop, kung wala to, baka bitin ung footer sa page na konti lang laman. */
+    background-color: var(--light-bg); /* Light background galing sa variable */
+    color: var(--text-color);          /* Text color */
+    line-height: 1.6;                  /* Spacing sa pagitan ng mga linya ng text, para mas madaling basahin. */
+}
+
+/* Style para sa header section. */
+header {
+    grid-area: header;                  /* Sinasabi ko na eto ung "header" sa grid-template-areas ko sa taas. */
+    background: var(--primary-color);   /* Dark blue background */
+    color: var(--link-color);           /* White text */
+    display: flex;                      /* Flexbox ginamit ko para madali i-align ung mga laman ng header. */
+    justify-content: space-between;     /* Eto ung reason kung bakit nasa kaliwa ung title at nasa kanan ung nav, automatic na. */
+    align-items: center;                /* Para pantay sa gitna vertically. */
+    padding: 15px 20px;                 /* Space sa loob ng header */
+    flex-wrap: wrap;                    /* Pra mag-adjust pag maliit na ang screen, d mag-overlap. */
+    border-bottom: var(--red-border);   /* Red border sa ilalim */
+}
+
+/* Laki ng title sa header ko. */
+header h1 {
+    font-size: 1.8rem;                  /* Malaking font size for main title */
+    margin: 0;                          /* Walang margin para compact */
+}
+
+/* Eto ung container para sa search bar at nav. */
+.Ulo-nga-nakaigid {
+    display: flex;                      /* Flex layout */
+    align-items: center;                /* Center vertically */
+    gap: 15px;                          /* Space sa pagitan ng mga items sa loob nito. */
+}
+
+/* Style ng search bar container. */
+.search-bar {
+    display: flex;                      /* Flex para magkatabi input at button */
+    gap: 5px;                           /* Maliit na gap between elements */
+    border-radius: 5px;                 /* Rounded corners */
+    overflow: hidden;                   /* Eto ung trick ko para gumana ung border-radius sa loob. Kung wala to, lalagpas ung kanto ng input field. */
+}
+
+/* Style ng input field pra sa search. */
+.search-bar input {
+    padding: 8px 12px;                  /* Space sa loob ng input */
+    border: none;                       /* Walang border */
+    border-radius: 5px 0 0 5px;         /* Kaliwang side lang ung may radius. */
+    width: 250px;                       /* Fixed width sa desktop */
+    font-size: 1rem;                    /* Normal font size */
+}
+
+/* Style ng search button. */
+.search-bar button {
+    padding: 8px 15px;                  /* Padding sa loob */
+    border: none;                       /* No border */
+    background: var(--secondary-color); /* Blue background */
+    color: var(--link-color);           /* White text */
+    border-radius: 0 5px 5px 0;         /* Kanang side lang ung may radius. */
+    cursor: pointer;                    /* Pointer cursor */
+    transition: background 0.3s;        /* Smooth background change */
+}
+
+/* Pag tinapat ung mouse sa search button, mag-iiba kulay. */
+.search-bar button:hover {
+    background: #155694;                /* Darker blue on hover */
+}
+
+/* Pra sa navigation menu. */
+nav {
+    display: flex;                      /* Horizontal nav */
+    gap: 20px;                          /* Space between nav items */
+}
+
+/* Style ng bawat link sa navigation. */
+nav a {
+    color: var(--link-color);           /* White text */
+    text-decoration: none;              /* No underline */
+    padding: 10px 15px;                 /* Space around text */
+    display: inline-block;              /* Para gumana padding */
+    font-weight: bold;                  /* Bold text */
+    font-size: 1rem;                    /* Normal font size */
+    transition: background 0.3s, color 0.3s; /* Smooth na transition. */
+    border-radius: 5px;                 /* Rounded corners */
+}
+
+/* Hover effect pra sa nav links. */
+nav a:hover {
+    background-color: var(--secondary-color); /* Blue background on hover */
+    color: var(--link-color);           /* White text stays */
+}
+
+/* Eto ung paalala pra sa mga guest users. */
+.guest-notice {
+    margin: 75px 0 0 0;                 /* Margin from top */
+    position: fixed;                    /* Pra laging nkadikit sa isang pwesto sa screen. */
+    top: 10px;                          /* 10px from top */
+    right: 20px;                        /* 20px from right */
+    background-color: #ffcc00;          /* Yellow background */
+    color: #000;                        /* Black text */
+    padding: 6px 14px;                  /* Internal spacing */
+    border-radius: 6px;                 /* Rounded corners */
+    font-weight: bold;                  /* Bold text */
+    font-size: 0.95rem;                 /* Slightly smaller font */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Shadow for depth */
+    animation: guestPulse 2s infinite;  /* Eto ung animation nya, para mapansin. */
+    z-index: 10;                        /* High z-index para laging visible */
+}
+
+/* Eto ung definition ng "guestPulse" animation ko. Prang tumitibok. */
+@keyframes guestPulse {
+    0% {
+        transform: scale(1);            /* Normal size */
+        opacity: 1;                     /* Full opacity */
+    }
+
+    50% {
+        transform: scale(1.05);         /* Medyo lumalaki. */
+        opacity: 0.9;                   /* Slightly transparent */
+    }
+
+    100% {
+        transform: scale(1);            /* Back to normal */
+        opacity: 1;                     /* Full opacity */
+    }
+}
+
+/* Style para sa sidebar. */
+aside {
+    grid-area: sidebar;                 /* Sinasabi ko na eto ung "sidebar" sa grid. */
+    background: var(--primary-color);   /* Dark blue background */
+    color: var(--link-color);           /* White text */
+    padding: 20px;                      /* Internal spacing */
+    overflow-y: auto;                   /* Para pag madami na ung links sa sidebar, magkaka-scrollbar sya automatically. */
+    border-right: 2px solid var(--secondary-color); /* Blue border sa right */
+    transition: transform 0.3s ease;    /* Smooth transition for mobile */
+}
+
+/* Title sa loob ng sidebar. */
+aside h2 {
+    margin-bottom: 10px;                /* Space below heading */
+    border-bottom: 2px solid var(--secondary-color); /* Blue border below */
+    padding-bottom: 5px;                /* Space between text and border */
+    font-size: 1.25rem;                 /* Font size */
+    color: var(--link-color);           /* White text */
+}
+
+/* Pra sa listahan sa sidebar. */
+aside ul {
+    list-style: none;                   /* Tinanggal ko ung mga bullet points. */
+    padding: 0;                         /* No padding */
+}
+
+/* Bawat link sa listahan sa sidebar. */
+aside ul li a {
+    color: var(--link-color);           /* White text */
+    text-decoration: none;              /* No underline */
+    padding: 8px 0;                     /* Vertical padding */
+    display: block;                     /* Ginawa kong block para buong area ay clickable, hindi lang ung text. Kung wala to, text lang pwede pindutin. */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border between items */
+    transition: color 0.3s, background 0.3s; /* Smooth transitions */
+}
+
+/* Hover effect pra sa sidebar links. */
+aside ul li a:hover {
+    color: var(--light-bg);             /* Light color on hover */
+    background-color: var(--secondary-color); /* Blue background on hover */
+}
+
+/* Tinatanggal ung border sa ilalim ng huling item sa list. Para malinis tingnan. */
+aside ul li:last-child a {
+    border-bottom: none;                /* No border for last item */
+}
+
+/* Checkbox hack ginamit ko dyan para sa dropdown. Pure CSS, walang JS. */
+.dropdown-toggle {
+    display: none;                      /* tinago ko lang ung actual na checkbox. */
+}
+
+/* Eto ung link na pinipindot pra lumabas ung dropdown. */
+.dropdown-link {
+    display: flex;                      /* Flex layout */
+    align-items: center;                /* Center items vertically */
+    gap: 5px;                           /* Small gap between icon and text */
+    text-decoration: none;              /* No underline */
+    color: var(--link-color);           /* White text */
+    font-weight: bold;                  /* Bold text */
+    cursor: pointer;                    /* Pointer cursor */
+    padding: 8px 0;                     /* Vertical padding */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Bottom border */
+}
+
+/* Hover effect for dropdown link */
+.dropdown-link:hover {
+    color: var(--light-bg);             /* Light text on hover */
+    background-color: var(--secondary-color); /* Blue background on hover */
+}
+
+/* Eto ung content ng dropdown, nkatago din by default. */
+.TM2R-dropdown-content {
+    display: none;                      /* Hidden by default */
+    list-style: none;                   /* No bullets */
+    padding: 10px 0 0 15px;            /* Padding with indentation */
+}
+
+/* Magic happens here: pag nka-check ung checkbox (.dropdown-toggle), lalabas ung content nya. Ginamit ko ung `~` (general sibling combinator). */
+.dropdown-toggle:checked~.TM2R-dropdown-content {
+    display: block;                     /* Show when checkbox is checked */
+}
+
+/* Dropdown list items */
+.dropdown-content li {
+    margin: 10px 0;                     /* Vertical spacing between items */
+}
+
+/* Dropdown links */
+.dropdown-content a {
+    color: var(--link-color);           /* White text */
+    text-decoration: none;              /* No underline */
+    padding: 5px 0;                     /* Vertical padding */
+    display: block;                     /* Block level for full clickable area */
+}
+
+/* Hover effect for dropdown links */
+.dropdown-content a:hover {
+    color: var(--light-bg);             /* Light text on hover */
+    background-color: var(--secondary-color); /* Blue background on hover */
+}
+
+/* --- Main Content --- */
+
+/* Style pra sa main content area ko. */
+main {
+    grid-area: main;                    /* Main area in grid */
+    padding: 20px;                      /* Internal spacing */
+    overflow-y: auto;                   /* Scrollable if content overflows */
+}
+
+/* Style pra sa mga headings sa main content. */
+main h1,
+main h2 {
+    font-size: 2rem;                    /* Large font size */
+    color: var(--primary-color);        /* Dark blue color */
+    margin-bottom: 20px;                /* Space below heading */
+    border-bottom: 2px solid var(--border-color); /* Gray border below */
+    padding-bottom: 10px;               /* Space between text and border */
+}
+
+/* Intro section styling */
+.intro {
+    margin-bottom: 20px;                /* Space below intro */
+}
+
+/* Style pra sa mga card ng sakit at fact sheets. Dito nakalagay yung info. */
+.TM2R-disease-card,
+.fact-sheet {
+    background: var(--card-bg);         /* White background */
+    padding: 20px;                      /* Internal spacing */
+    margin-bottom: 20px;                /* Space between cards */
+    border: 1px solid var(--border-color); /* Light gray border */
+    border-radius: 8px;                 /* Rounded corners */
+    box-shadow: var(--shadow);          /* Shadow effect */
+    transition: transform 0.2s, box-shadow 0.2s; /* Pra may animation pag hinover. */
+    border-top: var(--red-border);      /* Blue top border */
+    display: flex;                      /* Flex layout */
+    flex-direction: column;             /* para maging vertical ung arrangement. */
+    justify-content: space-between;     /* Eto ung magic. Pinilit ko ung button (`.basahin-mopa-ako`) na laging nasa ilalim ng card, kahit gaano pa kahaba o kaikli ung text sa taas nya. */
+    height: 100%;                       /* Full height for consistent cards */
+}
+
+/* Hover effect pra sa mga card. Medyo umaangat para may feedback sa user. */
+.TM2R-disease-card:hover,
+.fact-sheet:hover {
+    transform: translateY(-5px);        /* Move up slightly */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+}
+
+/* Title sa loob ng card. */
+.TM2R-disease-card h3,
+.fact-sheet h3 {
+    color: var(--secondary-color);      /* Blue color */
+    margin-bottom: 10px;                /* Space below heading */
+    font-size: 1.4rem;                  /* Font size */
+    border-bottom: 2px solid var(--secondary-color); /* Blue border below */
+    padding-bottom: 5px;                /* Space between text and border */
+}
+
+/* Unordered list in fact sheets */
+.fact-sheet ul {
+    padding-left: 20px;                 /* Indentation for list */
+    margin-bottom: 15px;                /* Space below list */
+}
+
+/* List items in fact sheets */
+.fact-sheet li {
+    margin-bottom: 5px;                 /* Space between list items */
+}
+
+/* Container pra sa mga links/buttons tulad ng "Basahin Mo Pa". */
+.basahin-mopa-ako,
+.return-link {
+    display: flex;                      /* Flex layout */
+    justify-content: center;            /* eto ung nag-center sa button ko. */
+}
+
+/* Style pra sa mismong link. Ginawa ko syang prang button. */
+.return-link a,
+.basahin-mopa-ako a {
+    color: var(--primary-color);        /* Text color */
+    text-decoration: none;              /* No underline */
+    padding: 8px 15px;                  /* Button-like padding */
+    background: var(--secondary-color); /* Blue background */
+    color: var(--link-color);           /* White text */
+    border-radius: 5px;                 /* Rounded corners */
+    display: inline-block;              /* For padding to work */
+    margin-top: 15px;                   /* Space above button */
+    transition: background 0.3s;        /* Smooth background transition */
+    align-self: center;                 /* Center align in flex container */
+}
+
+/* Hover effect for the link/button. */
+.return-link a:hover,
+.basahin-mopa-ako a:hover {
+    background: #002a5c;                /* Darker blue on hover */
+    text-decoration: none;              /* No underline on hover */
+}
+
+/* Video Container (Responsive, unified) */
+
+/* Pra maging responsive ung mga video embed (like YouTube). Eto ung trick. */
+.video-container {
+    position: relative;                 /* For absolute positioning of iframe */
+    height: 0;                          /* Zero height, maintained by padding */
+    padding-top: 56.25%;                /* Eto ung 16:9 aspect ratio. Magic number to (9 / 16 * 100). Kaya laging sakto ung laki ng video. */
+    overflow: hidden;                   /* Hide anything that overflows */
+    border-radius: 8px;                 /* Rounded corners */
+    margin: 20px 0;                     /* Vertical spacing */
+    box-shadow: var(--shadow);          /* Shadow effect */
+}
+
+/* Ung mismong iframe ng video, sinakop nya ung buong container. */
+.video-container iframe {
+    position: absolute;                 /* Absolute positioning */
+    top: 0;                             /* Top of container */
+    left: 0;                            /* Left of container */
+    width: 100%;                       /* Full width */
+    height: 100%;                     /* Full height */
+    border: none;                       /* No border */
+}
+
+/* Grid layout para sa mga sakit. */
+.disease-grid {
+    display: grid;                      /* CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive na columns 'to. Automatic mag a-adjust. */
+    gap: 20px;                          /* Space between grid items */
+}
+
+/* Grid layout para sa mga profile cards. */
+.profile-grid {
+    display: grid;                      /* CSS Grid */
+    /* Responsive grid ulit. Automatic mag-aadjust ung number ng columns depende sa screen size. */
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;                          /* Larger gap between profiles */
+    padding: 20px;                      /* Internal padding */
+    justify-items: center;              /* para naka-center ung cards kung may extra space. */
+}
+
+/* Style ng bawat profile card. */
+.profile-card {
+    background: var(--card-bg);         /* White background */
+    border: 1px solid var(--secondary-color); /* Blue border */
+    border-radius: 15px;                /* More rounded corners */
+    padding: 30px;                      /* Internal spacing */
+    text-align: center;                 /* Center aligned content */
+    width: 320px;                       /* Fixed width */
+    box-shadow: 0 6px 15px var(--secondary-color); /* Blue shadow */
+    transition: box-shadow 0.3s;        /* Smooth shadow transition */
+    color: var(--secondary-color);      /* Blue text */
+}
+
+/* Hover effect for profile card */
+.profile-card:hover {
+    box-shadow: 0 0 20px var(--secondary-color); /* Glow effect on hover */
+}
+
+/* Style pra sa profile picture. */
+.profile-img {
+    width: 120px;                       /* Fixed width */
+    height: 120px;                      /* Fixed height for square */
+    border-radius: 50%;                 /* Pra maging bilog. */
+    border: 3px solid var(--secondary-color); /* Blue border */
+    object-fit: cover;                  /* Kung wala to, at hindi square ung image, magiging oval or stretched sya. Importante to. */
+    margin-bottom: 15px;                /* Space below image */
+    transition: transform 0.3s;         /* Smooth transform */
+}
+
+/* Pag hinover ung picture, medyo llaki. */
+.profile-img:hover {
+    transform: scale(1.2);              /* Scale up on hover */
+}
+
+/* Pangalan sa profile card. */
+.profile-card h1 {
+    color: var(--secondary-color);      /* Blue color */
+    margin: 10px 0;                     /* Vertical spacing */
+    font-size: 1.5rem;                  /* Font size */
+}
+
+/* Bio or description sa profile card. */
+.profile-card .bio {
+    font-size: 14px;                    /* Smaller font */
+    line-height: 1.6;                   /* Line height for readability */
+    margin: 15px 0;                     /* Vertical spacing */
+    color: var(--text-color);           /* Dark text color */
+}
+
+/* Style pra sa table ng info. */
+.info-table table {
+    width: 100%;                        /* Full width */
+    border-collapse: collapse;          /* para magdikit ung mga borders. */
+    text-align: center;                 /* Center aligned text */
+    border: 2px solid var(--secondary-color); /* Blue border around table */
+}
+
+/* Table header style. */
+.info-table th {
+    background-color: var(--secondary-color); /* Blue background */
+    color: var(--link-color);           /* White text */
+    padding: 10px;                      /* Internal spacing */
+    font-size: 15px;                    /* Font size */
+    border: 1px solid var(--secondary-color); /* Blue borders */
+}
+
+/* Table data cell style. */
+.info-table td {
+    padding: 10px;                      /* Internal spacing */
+    font-size: 14px;                    /* Font size */
+    color: var(--secondary-color);      /* Blue text */
+    border: 1px solid var(--secondary-color); /* Blue borders */
+}
+
+/* List in info table */
+.info-table ul {
+    list-style: none;                   /* No bullets */
+    padding: 0;                         /* No padding */
+    margin: 0;                          /* No margin */
+}
+
+/* List items in info table */
+.info-table li {
+    margin: 5px 0;                      /* Vertical spacing */
+    text-align: center;                 /* Center aligned */
+}
+
+/* Links in info table */
+.info-table a {
+    color: var(--secondary-color);      /* Blue color */
+    text-decoration: none;              /* No underline */
+}
+
+/* Grid pra sa features at services. */
+.features-grid,
+.service-grid {
+    display: grid;                      /* CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
+    gap: 2rem;                          /* Large gap between items */
+}
+
+/* Style ng bawat feature item. */
+.feature {
+    background-color: #f9f9f0;          /* Light yellow background */
+    padding: 1.5rem;                    /* Internal spacing */
+    border-left: 5px solid var(--secondary-color); /* Blue left border */
+    border-radius: 8px;                 /* Rounded corners */
+}
+
+/* Feature headings */
+.feature h3 {
+    color: var(--primary-color);        /* Dark blue color */
+    margin-top: 0;                      /* No top margin */
+}
+
+/* Style ng bawat service box. */
+.service-box {
+    background-color: var(--card-bg);   /* White background */
+    padding: 1.5rem;                    /* Internal spacing */
+    border: 1px solid var(--border-color); /* Light gray border */
+    border-radius: 8px;                 /* Rounded corners */
+    text-align: center;                 /* Center aligned content */
+}
+
+/* Service box headings */
+.service-box h4 {
+    color: var(--primary-color);        /* Dark blue color */
+    font-size: 1.25rem;                 /* Font size */
+    margin-top: 0;                      /* No top margin */
+}
+
+/* Style pra sa footer. */
+footer {
+    grid-column: 1 / -1;                /* Para sakupin ng footer ung buong lapad ng grid, from first to last column line. */
+    background: var(--primary-color);   /* Dark blue background */
+    color: var(--link-color);           /* White text */
+    text-align: center;                 /* Center aligned text */
+    padding: 10px;                      /* Internal spacing */
+    margin-top: auto;                   /* Push to bottom if needed */
+}
+
+/* --- Hamburger Icons and Mobile (Unified Responsive from all files) --- */
+
+/* Dito na magsisimula ung pagiging responsive ng site ko. */
+
+/* Eto ung mga hamburger icon, nkatago sa desktop view. */
+.menu-icon,
+.sidebar-icon {
+    display: none;                      /* Hidden on desktop */
+    font-size: 1.5rem;                  /* Smaller icon size */
+    cursor: pointer;                    /* Pointer cursor */
+    color: var(--link-color);           /* White color */
+    padding: 8px;                       /* Padding for better touch target */
+    background: var(--secondary-color); /* Blue background */
+    border-radius: 4px;                 /* Rounded corners */
+    margin-left: 10px;                  /* Space from other elements */
+}
+
+/* Eto ung mga checkbox na ka-partner ng icons, nkatago din. Sila ung nagpapa-gana sa slide-out menu. */
+#nav-toggle,
+#sidebar-toggle {
+    display: none;                      /* Hidden checkboxes */
+}
+
+/* Mobile Navigation Overlay */
+.nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    cursor: pointer;
+}
+
+#nav-toggle:checked ~ .nav-overlay {
+    display: block;
+}
+
+/* Sidebar Overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    cursor: pointer;
+}
+
+#sidebar-toggle:checked ~ .overlay {
+    display: block;
+}
+
+/* Eto na ung responsive part. Pag ung screen width ay 992px or ms maliit, ito ang gagamitin na style. */
+@media (max-width: 992px) {
+    body {
+        grid-template-columns: 200px 1fr; /* LILIIT ung sidebar ko. */
+    }
+
+    header {
+        flex-direction: column;         /* Magpapatong-patong ung items sa header para magkasya. */
+        align-items: flex-start;        /* Left aligned */
+    }
+
+    .search-bar {
+        width: 100%;                    /* Full width */
+        margin-top: 10px;               /* Space above */
+    }
+
+    .search-bar input {
+        width: 200px;                   /* Smaller input width */
+    }
+}
+
+/* Pra sa tablet view, 768px or ms maliit. Dito na nagbabago ung layout. */
+@media (max-width: 768px) {
+    body {
+        grid-template-areas:            /* Pinalitan ko na ung grid areas, header at main na lang para simple. */
+            "header"
+            "main";
+        grid-template-columns: 1fr;     /* Isang column na lang. */
+        grid-template-rows: auto 1fr;   /* Header and main rows */
+    }
+
+    /* Lalabas na ung hamburger icons sa size na to. */
+    .menu-icon,
+    .sidebar-icon {
+        display: block;                 /* Show hamburger icons */
+    }
+
+    /* Hide the regular navigation on mobile */
+    nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 250px;
+        height: 100vh;
+        background: var(--primary-color);
+        flex-direction: column;
+        padding: 80px 20px 20px 20px;
+        z-index: 1000;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    /* ETO ANG KULANG - Show navigation when nav-toggle is checked */
+    #nav-toggle:checked ~ header nav {
+        display: flex;
+        transform: translateX(0);
+    }
+
+    /* Navigation links styling for mobile */
+    nav a {
+        padding: 15px;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        width: 100%;
+        text-align: left;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    nav a:hover {
+        background: var(--secondary-color);
+    }
+
+    /* Sidebar styling for mobile */
+    aside {
+        position: fixed;
+        left: -250px;
+        top: 0;
+        height: 100vh;
+        width: 250px;
+        background: var(--primary-color);
+        transition: left 0.3s ease-in-out;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
+    /* Show sidebar when sidebar-toggle is checked */
+    #sidebar-toggle:checked ~ aside {
+        left: 0;
+    }
+
+    /* Header layout for mobile */
+    header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Hide search bar on mobile */
+    .search-bar {
+        display: none;
+    }
+
+    /* Single column grids on mobile */
+    .features-grid,
+    .service-grid {
+        grid-template-columns: 1fr;     /* Isang column na lang sa mobile. */
+    }
+}
+
+/* Pra sa maliliit na phone, 480px or smaller. Mga konting adjustments lang. */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;              /* LILIIT ung title para magkasya. */
+    }
+
+    .intro h2 {
+        font-size: 1.5rem;              /* Smaller heading */
+    }
+
+    section {
+        padding: 1.5rem 1rem;           /* Adjusted padding */
+    }
+
+    .menu-icon,
+    .sidebar-icon {
+        font-size: 1.3rem;              /* Smaller icons on very small screens */
+        padding: 6px;
+    }
+}
+
+/* Style pra sa Google Translate widget. */
+#google_translate_element {
+    position: fixed;                    /* Fixed position */
+    bottom: 16px;                       /* 16px from bottom */
+    right: 16px;                        /* 16px from right */
+    z-index: 50;                        /* High enough z-index */
+}

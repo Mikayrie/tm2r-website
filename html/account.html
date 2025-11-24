@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Dito naka-set yung mga basic na settings ng webpage natin -->
+    <meta charset="UTF-8">
+    <!-- Ito yung nagpapaganda ng display sa mobile devices, pare -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Dito naka-link yung CSS file natin para sa styling -->
+    <link rel="stylesheet" href="../css/account.css">
+    <!-- Ito yung title na lalabas sa browser tab -->
+    <title>TM2R WEBPAGE</title>
+</head>
+
+<body>
+<input type="checkbox" id="nav-toggle" />
+<label for="nav-toggle" class="nav-overlay"></label>
+
+<input type="checkbox" id="sidebar-toggle" />
+<label for="sidebar-toggle" class="overlay"></label>
+        <div class="header-left">
+        <label for="sidebar-toggle" class="sidebar-icon">&#9776;</label>
+    <!-- Main container para sa buong login/signup section -->
+    <div class="login-wrapper">
+        <div class="login-container">
+            <!-- Left side ng container - dito yung logo at description -->
+            <div class="login-left">
+                <!-- Logo ng TM2R Digihealth -->
+                <img src="logo-removebg-preview.png" alt="Logo" class="login-logo">
+                <!-- Main title ng website -->
+                <h1 class="login-title">Welcome to TM2R DIGIHEALTH</h1>
+                <!-- Description kung para saan yung website natin -->
+                <p class="login-desc">
+                    A website where its purpose is to make the Filipinos be packed with knowledge about different
+                    diseases here in the Philippines.
+                </p>
+            </div>
+
+            <!-- Right side ng container - dito yung signup form -->
+            <div class="signin-right">
+                <!-- Header ng signup form -->
+                <div class="signin-form-header">
+                    <h2>Sign-up</h2>
+                </div>
+
+                <!-- Eto yung form mismo para sa pag-signup -->
+                <form class="create_form" action="submit">
+                    <!-- Field para sa fullname ng user -->
+                    <div>
+                        <label for="Fullname">Fullname:</label>
+                        <input type="text" id="fullnname" placeholder="Enter your name" required>
+                        <!-- Error message pag hindi na-fill yung field -->
+                        <span class="error">Please enter your fullname</span>
+                    </div>
+
+                    <!-- Field para sa birthday ng user -->
+                    <div>
+                        <label for="Birthday">Birthday:</label>
+                        <input type="Date" id="Birthday" placeholder="Enter your birthday" required>
+                        <!-- Error message pag walang birthdate na nilagay -->
+                        <span class="error">Please enter your birthdate</span>
+                    </div>
+
+                    <!-- Field para sa phone number ng user -->
+                    <div>
+                        <label for="Contact">Phone Number:</label>
+                        <input type="number" id="number" placeholder="Enter your Phone number" required>
+                        <!-- Error message pag hindi number yung nilagay -->
+                        <span class="error">Please enter your number only</span>
+                    </div>
+
+                    <!-- Field para sa gender selection ng user -->
+                    <div>
+                        <label for="Gender">Gender:</label>
+                        <!-- Option para sa male -->
+                        <label for="Gender">Male</label>
+                        <input type="radio" id="gender" placeholder="Male" required>
+                        <!-- Option para sa female -->
+                        <label for="Gender">Female</label>
+                        <input type="radio" id="gender" placeholder="Female" required>
+                    </div>
+
+                    <!-- Field para sa email address ng user -->
+                    <div>
+                        <label for="Email address">Email address:</label>
+                        <input type="text" id="email" placeholder="Enter your email address" required>
+                        <!-- Error message pag invalid email yung nilagay -->
+                        <span class="error">Please enter your email address</span>
+                    </div>
+
+                    <!-- Field para sa password ng user -->
+                    <div>
+                        <label for="password">Password:</label>
+                        <!-- Pattern requirement: dapat may uppercase, lowercase, at number -->
+                        <input type="password" id="password" placeholder="Enter your password"
+                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" required>
+                        <!-- Error message pag hindi nasunod yung password requirements -->
+                        <span class="error">Please enter a minimum of 8 characters with a mix of Upper/Lower case and a
+                            special character</span>
+                    </div>
+
+                    <!-- Field para i-confirm yung password -->
+                    <div>
+                        <label for="password">Confirm password:</label>
+                        <!-- Dapat same yung nilagay dito sa password na nilagay sa taas -->
+                        <input type="password" id="password" placeholder="Enter your password"
+                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" required>
+                    </div>
+
+                    <!-- Button para i-submit yung form -->
+                    <button type="submit" class="signin-btn">Sign In</button>
+                </form>
+<label for="nav-toggle" class="menu-icon">&#9776;</label>
+
+                <!-- Dito yung Google Translate widget para ma-translate yung page -->
+                <div id="google_translate_element"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript code para sa Google Translate functionality -->
+    <script type="text/javascript">
+        // Function na nag-iinitialize ng Google Translate
+        function googleTranslateElementInit() {
+            // Dito naka-set yung default language at layout ng translator
+            new google.translate.TranslateElement(
+                { pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL },
+                'google_translate_element'
+            );
+        }
+    </script>
+
+    <!-- External script from Google para sa translation -->
+</body>
+
+</html>

@@ -1,0 +1,267 @@
+/* --- Global & Reset --- */
+:root {
+  --primary-color: #0077b6;
+  --secondary-color: #023e8a;
+  --light-bg: #f4f4f4;
+  --card-bg: #e9ecef;
+  --text-color: #333;
+  --link-color: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main";
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+  background-color: var(--light-bg);
+  color: var(--text-color);
+}
+
+/* --- Header --- */
+header {
+  grid-area: header;
+  background: var(--primary-color);
+  color: var(--link-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+
+.search-bar {
+  display: flex;
+  gap: 5px;
+}
+
+.search-bar input {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.search-bar button {
+  padding: 8px 15px;
+  border: none;
+  background: #0096c7;
+  color: var(--link-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-bar button:hover {
+  background: #0077b6;
+}
+
+/* --- Navigation --- */
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+nav a:hover {
+  color: #a0c4ff;
+  text-decoration: underline;
+}
+
+/* --- Sidebar --- */
+aside {
+  grid-area: sidebar;
+  background: var(--secondary-color);
+  color: var(--link-color);
+  padding: 20px;
+  overflow-y: auto;
+  border-right: 2px solid #00509e;
+  transition: transform 0.3s ease;
+}
+
+aside h2 {
+  margin-bottom: 10px;
+  border-bottom: 2px solid #00509e;
+  padding-bottom: 5px;
+  font-size: 1.25rem;
+}
+
+aside ul {
+  list-style: none;
+}
+
+aside ul li {
+  margin: 15px 0;
+}
+
+aside ul li a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+aside ul li a:hover {
+  color: #a0c4ff;
+}
+
+/* --- Main Content --- */
+main {
+  grid-area: main;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+main h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: var(--primary-color);
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.disease-card {
+  background: var(--card-bg);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+
+.disease-card:hover {
+  transform: translateY(-5px);
+}
+
+.disease-card h3 {
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.disease-card p {
+  margin-bottom: 5px;
+}
+
+/* --- Toggles and Icons (Hidden on Desktop) --- */
+.menu-icon,
+.sidebar-icon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--link-color);
+}
+
+#nav-toggle,
+#sidebar-toggle {
+  display: none;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+  body {
+    grid-template-columns: 200px 1fr;
+  }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .search-bar {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    grid-template-areas:
+      "header"
+      "main";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  /* Hamburger icons are now visible */
+  .menu-icon,
+  .sidebar-icon {
+    display: block;
+  }
+
+  /* Hide elements by default on mobile */
+  nav, aside {
+    position: fixed;
+    height: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+
+  nav {
+    right: 0;
+    width: 250px;
+    background: var(--primary-color);
+    flex-direction: column;
+    padding-top: 70px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  
+  nav a {
+    padding: 15px 20px;
+  }
+
+  aside {
+    left: 0;
+    width: 250px;
+    transform: translateX(-100%);
+  }
+
+  /* Show navigation/sidebar when checkbox is checked */
+  #nav-toggle:checked ~ nav {
+    transform: translateX(0);
+  }
+  
+  #sidebar-toggle:checked ~ aside {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  main h2 {
+    font-size: 1.5rem;
+  }
+  
+  .search-bar input,
+  .search-bar button {
+    font-size: 0.9rem;
+  }
+}
+
+#google_translate_element {
+    position: fixed;
+    bottom: 16px;   /* same as bottom-4 */
+    right: 16px;    /* same as right-4 */
+    z-index: 50;    /* same as z-50 */
+  }

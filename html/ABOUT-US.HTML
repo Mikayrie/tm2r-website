@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Dito yung mga basic settings ng webpage natin pare -->
+    <meta charset="UTF-8" />
+    <!-- Important to for mobile responsiveness, para maganda tingnan sa phone -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title ng page na lalabas sa browser tab -->
+    <title>TM2R - Arthritis</title>
+    <!-- Link sa CSS file natin for styling -->
+    <link rel="stylesheet" href="../css/tm2r-style.css" />
+</head>
+
+<body>
+    <!-- ADD THESE TWO LINES - Navigation toggle and overlay -->
+    <input type="checkbox" id="nav-toggle" />
+    <div class="nav-overlay"></div>
+    
+    <input type="checkbox" id="sidebar-toggle" />
+    <label for="sidebar-toggle" class="overlay"></label>
+    
+    <!-- Eto yung header section ng website namin -->
+    <header>
+        <!-- And this is the Container para sa logo at hamburger menu -->
+        <div class="header-left">
+            <!-- Hamburger icon for sidebar toggle (mobile view) -->
+            <label for="sidebar-toggle" class="sidebar-icon">&#9776;</label>
+            <!-- Main title ng website -->
+            <h1>TM2R DIGIHEALTH</h1>
+        </div>
+        
+        <!-- Search bar para makapag-search ng diseases -->
+        <form action="#" class="search-bar">
+            <input type="text" placeholder="Search diseases..." name="q" />
+            <button type="submit">Search</button>
+        </form>
+        
+        <!-- ADD THIS LINE - Right hamburger icon for navigation -->
+        <label for="nav-toggle" class="menu-icon">&#9776;</label>
+        
+        <!-- Navigation menu for main pages ng website -->
+        <nav>
+            <a href="ho_me.html">Home</a>
+            <a href="homie.html">Diseases</a>
+            <a href="about-us.html">About</a>
+            <a href="CONTACT US.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Sidebar for categories ng mga diseases -->
+    <aside>
+        <section>
+            <h2>Categories</h2>
+            <ul>
+                <!-- First category: Infectious Diseases -->
+                <li>
+                    <!-- Checkbox for dropdown functionality -->
+                    <input type="checkbox" id="infectious-diseases" class="dropdown-toggle" />
+                    <!-- Label for the dropdown with arrow icon -->
+                    <label for="infectious-diseases" class="dropdown-link">Infectious Diseases <span
+                            class="arrow">&#9660;</span></label>
+                    <!-- Dropdown content - list of infectious diseases -->
+                    <ul class="TM2R-dropdown-content">
+                        <li><a href="bird-flu.html">Bird flu</a></li>
+                        <li><a href="chickenpox.html">Chickenpox</a></li>
+                        <li><a href="cholera.html">Cholera</a></li>
+                        <li><a href="conjunctivitis.html">Conjunctivitis</a></li>
+                        <li><a href="dengue-fever.html">Dengue Fever</a></li>
+                        <li><a href="diarrhea.html">Diarrhea</a></li>
+                        <li><a href="fungi.html">Fungi</a></li>
+                        <li><a href="gastroenteritis.html">Gastroenteritis</a></li>
+                        <li><a href="hepatitis.html">Hepatitis</a></li>
+                        <li><a href="hiv.html">HIV</a></li>
+                        <li><a href="influenza.html">Influenza</a></li>
+                        <li><a href="leptospirosis.html">Leptospirosis</a></li>
+                        <li><a href="malaria.html">Malaria</a></li>
+                        <li><a href="measles.html">Measles</a></li>
+                        <li><a href="mononucleosis.html">Mononucleosis</a></li>
+                        <li><a href="pneumonia.html">Pneumonia</a></li>
+                        <li><a href="polio.html">Polio</a></li>
+                        <li><a href="rabies.html">Rabies</a></li>
+                        <li><a href="scabies.html">Scabies</a></li>
+                        <li><a href="stis.html">STIs</a></li>
+                        <li><a href="tuberculosis.html">Tuberculosis</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Second category: Lifestyle Diseases -->
+                <li>
+                    <!-- Checkbox for dropdown functionality -->
+                    <input type="checkbox" id="lifestyle-diseases" class="dropdown-toggle" />
+                    <!-- Label for the dropdown with arrow icon -->
+                    <label for="lifestyle-diseases" class="dropdown-link">Lifestyle Diseases<span
+                            class="arrow">&#9660;</span></label>
+                    <!-- Dropdown content - list of lifestyle diseases -->
+                    <ul class="TM2R-dropdown-content">
+                        <li><a href="arthritis.html">Arthritis</a></li>
+                        <li><a href="asthma.html">Asthma</a></li>
+                        <li><a href="back-pain.html">Back pain</a></li>
+                        <li><a href="cancer.html">Cancer</a></li>
+                        <li><a href="copd.html">COPD</a></li>
+                        <li><a href="depression.html">Depression</a></li>
+                        <li><a href="diabetes.html">Diabetes</a></li>
+                        <li><a href="epilepsy.html">Epilepsy</a></li>
+                        <li><a href="gout.html">Gout</a></li>
+                        <li><a href="headache.html">Headache</a></li>
+                        <li><a href="heart-disease.html">Heart disease</a></li>
+                        <li><a href="high-cholesterol.html">High cholesterol</a></li>
+                        <li><a href="hypertension.html">Hypertension</a></li>
+                        <li><a href="kidney-disease.html">Kidney disease</a></li>
+                        <li><a href="obesity.html">Obesity</a></li>
+                        <li><a href="stroke.html">Stroke</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </aside>
+
+    <main>
+        <div class="intro">
+            <h2>Our Story</h2> <!-- Main heading pra sa about us section -->
+            <p>We are a team of ambitious first-year BSIT students who created TM2R DIGIHEALTH. Our goal was to build a
+                clean, reliable, and easy-to-navigate resource for health information, using data sourced directly from
+                the World Health Organization. This project represents our passion for technology and our desire to make
+                a positive impact. Meet the team that made it happen.</p> <!-- Eto ung description ng team at purpose ng website namin -->
+        </div>
+
+        <div class="profile-grid"> <!-- Grid layout pra sa mga profile cards, responsive to -->
+            <div class="profile-card"> <!-- Profile card ni Tristan -->
+                <img src="../images/kayrie.webp" alt="Profile Picture of Tristan Galutan" class="profile-img"> <!-- Placeholder image muna -->
+                <h1>Tristan Galutan</h1> <!-- Name -->
+                <p class="bio">
+                    As the Project Leader, Tristan helped guide the team's overall direction and was responsible for the
+                    initial research and verification of the health data, ensuring the information presented is accurate
+                    and trustworthy.
+                </p> <!-- Bio description ng role nya sa team -->
+                <div class="info-table"> <!-- Table pra sa hobbies and skills -->
+                    <table>
+                        <tr>
+                            <th>Hobbies</th> <!-- Table header -->
+                            <th>Skills</th> <!-- Table header -->
+                        </tr>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li>Fact-checking</li> <!-- Hobbies list -->
+                                    <li>Reading Medical Journals</li>
+                                    <li>Writing</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Project Oversight</li> <!-- Skills list -->
+                                    <li>Research & Analysis</li>
+                                    <li>Content Verification</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="profile-card"> <!-- And this is me! (Mikayrie) -->
+                <img src="../images/kayrie.webp" alt="Profile Picture of Mikayrie D. Dulay" class="profile-img"> <!-- Eto ung actual picture ko -->
+                <h1>Mikayrie D. Dulay</h1> <!-- My name -->
+                <p class="bio">
+                    Hello! As the Co-Leader and Lead Developer, I designed the core concept and architecture of TM2R
+                    DIGIHEALTH. I developed the main website structure, created the individual disease pages, and
+                    integrated all the content.
+                </p> <!-- On this part dito ko inexplain ung mga ginawa ko sa website, ako ung gumawa ng mostly ng code -->
+                <div class="info-table">
+                    <table>
+                        <tr>
+                            <th>Hobbies</th>
+                            <th>Skills</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li>Playing Online Games</li> <!-- Ung mga hobbies ko -->
+                                    <li>Singing & Dancing</li>
+                                    <li>Watching Anime</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Lead Web Development</li> <!-- Ung mga skills ko sa web development -->
+                                    <li>Project Co-Leadership</li>
+                                    <li>UI/UX Design</li>
+                                    <li>Content Strategy</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="profile-card"> <!-- Profile card ni Richelle -->
+                <img src="../images/riri.webp" alt="Profile Picture of Richelle Baniago" class="profile-img"> <!-- Placeholder image -->
+                <h1>Richelle Baniago</h1> <!-- Name -->
+                <p class="bio">
+                    Hello! I'm Richelle. I collaborated on building the site's interactive features. My primary
+                    contribution was developing the user-friendly "Create an Account" page, ensuring a smooth
+                    registration process for new users.
+                </p> <!-- Bio description - sya ung gumawa ng account creation page -->
+                <div class="info-table">
+                    <table>
+                        <tr>
+                            <th>Hobbies</th>
+                            <th>Skills</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li>Reading Tech Blogs</li> <!-- Hobbies nya -->
+                                    <li>Hiking</li>
+                                    <li>Photography</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Frontend Development</li> <!-- Skills nya -->
+                                    <li>Web Form Design</li>
+                                    <li>Team Collaboration</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="profile-card"> <!-- Profile card ni Raven -->
+                <img src="../images/rayven.webp" alt="Profile Picture of Raven Villaver" class="profile-img"> <!-- Placeholder image -->
+                <h1>Raven Villaver</h1> <!-- Name -->
+                <p class="bio">
+                    Hi, I'm Raven. I worked on the user authentication components of the website. I focused on building
+                    the "Login" page, contributing to the system that allows users to securely access their accounts.
+                </p> <!-- Bio description - sya ung gumawa ng login system -->
+                <div class="info-table">
+                    <table>
+                        <tr>
+                            <th>Hobbies</th>
+                            <th>Skills</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li>Coding Challenges</li> <!-- Nandito nakalagay mga hobbies nya -->
+                                    <li>Building Robots</li>
+                                    <li>Chess</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>User Authentication Logic</li> <!-- Skills nya -->
+                                    <li>Collaborative Coding</li>
+                                    <li>Problem Solving</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- Google Translate widget - pra sa multilingual support -->
+        <div id="google_translate_element"></div>
+
+        <!-- Google Translate script - pra gumana ung translation feature -->
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement(
+                    {pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL},
+                    'google_translate_element'
+                );
+            }
+        </script>
+        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </main>
+</body>
+
+</html>
