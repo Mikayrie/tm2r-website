@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - TM2R DIGIHEALTH</title>
+    <link rel="stylesheet" href="../css/createaccount.css">
+</head>
+<body>
+    <div class="account-wrapper">
+        <div class="account-container">
+            <!-- Left Side -->
+            <div class="account-left">
+                <img src="../images/Gemini_Generated_Image_f5f0r5f5f0r5f5f0-removebg-preview.png" alt="Logo" class="account-logo">
+                <h1 class="account-title">Join TM2R</h1>
+                <p class="account-desc">
+                    Create an account to track your health statistics and get personalized disease prevention tips.
+                </p>
+            </div>
+
+            <!-- Right Side -->
+            <div class="account-right">
+                <div class="form-header">
+                    <h2>Create Account</h2>
+                </div>
+
+                <form class="account-form" action="../index.html">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstname">First Name</label>
+                            <input type="text" id="firstname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname">Last Name</label>
+                            <input type="text" id="lastname" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" required>
+                        <span class="error">Must be 8+ chars with uppercase, lowercase, and number</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" required>
+                    </div>
+
+                    <div class="terms-option">
+                        <input type="checkbox" id="terms" required>
+                        <!-- Added ID to this link to trigger modal -->
+                        <label for="terms">I agree to the <a href="#" id="terms-link">Terms & Conditions</a></label>
+                    </div>
+
+                    <button type="submit" class="register-btn">Sign Up</button>
+                </form>
+
+                <div class="account-links">
+                    <span>
+                        Already have an account? <a href="../index.html" class="login-link">Sign in</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL HTML START ================= -->
+    <div id="terms-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Terms of Service & Medical Disclaimer</h2>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>1. Medical Disclaimer</h3>
+                <p><strong>TM2R DIGIHEALTH is for informational purposes only.</strong> The content provided regarding diseases (such as Dengue, Tuberculosis, Hypertension, etc.) is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.</p>
+                
+                <h3>2. Emergency Situations</h3>
+                <p>If you think you may have a medical emergency, call your doctor or go to the nearest hospital immediately. Do not rely on this website for immediate life-saving assistance.</p>
+
+                <h3>3. Accuracy of Information</h3>
+                <p>While we strive to keep our health database accurate and up-to-date, medical knowledge changes constantly. TM2R DIGIHEALTH cannot guarantee that all information reflects the most current medical research.</p>
+
+                <h3>4. User Privacy</h3>
+                <p>Your name and email address are collected solely for the purpose of creating your personalized dashboard. We do not share your personal health data with third-party advertisers without your consent.</p>
+
+                <h3>5. Account Security</h3>
+                <p>You are responsible for maintaining the confidentiality of your password. TM2R is not liable for any loss or damage arising from your failure to protect your account information.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="accept-btn">I Understand & Agree</button>
+            </div>
+        </div>
+    </div>
+    <!-- ================= MODAL HTML END ================= -->
+
+    <!-- JAVASCRIPT TO MAKE IT WORK -->
+    <script>
+        // Get elements
+        const modal = document.getElementById("terms-modal");
+        const btn = document.getElementById("terms-link");
+        const span = document.getElementsByClassName("close-btn")[0];
+        const acceptBtn = document.querySelector(".accept-btn");
+        const checkbox = document.getElementById("terms");
+
+        // When user clicks the link, open the modal 
+        btn.onclick = function(e) {
+            e.preventDefault(); // Stop link from jumping
+            modal.style.display = "flex";
+        }
+
+        // When user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When user clicks "I Agree", close modal and CHECK the box
+        acceptBtn.onclick = function() {
+            modal.style.display = "none";
+            checkbox.checked = true;
+        }
+
+        // When user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
