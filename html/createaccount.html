@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account - TM2R DIGIHEALTH</title>
     <link rel="stylesheet" href="../css/createaccount.css">
+    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
     <div class="account-wrapper">
@@ -98,6 +99,35 @@
             </div>
         </div>
     </div>
+
+    <script>
+    // Select the form
+    const signupForm = document.querySelector('.account-form');
+    
+    if (signupForm) {
+        signupForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop normal submission
+            
+            // Check if passwords match (Basic validation)
+            const password = document.getElementById('password').value;
+            const confirm = document.getElementById('confirm-password').value;
+            const terms = document.getElementById('terms').checked;
+
+            if (password !== confirm) {
+                alert("Passwords do not match!");
+                return;
+            }
+            if (!terms) {
+                alert("Please accept the Terms & Conditions.");
+                return;
+            }
+
+            // Open the Netlify Signup Popup
+            // The user will enter their email/password here, and Netlify handles the rest!
+            netlifyIdentity.open('signup');
+        });
+    }
+</script>
     <!-- ================= MODAL HTML END ================= -->
 
     <!-- JAVASCRIPT TO MAKE IT WORK -->
@@ -133,5 +163,6 @@
             }
         }
     </script>
+    
 </body>
 </html>
