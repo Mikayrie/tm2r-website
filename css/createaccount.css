@@ -139,7 +139,7 @@ body {
 
 /* Error message styling */
 .form-group .error {
-    display: hidden;
+    display: none;
     font-size: 0.75em;
     color: red;
     margin-top: 4px;
