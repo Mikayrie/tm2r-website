@@ -1,0 +1,349 @@
+:root {
+    --primary-color: #004d80;
+    --secondary-color: #1a6bd4;
+    --light-bg: #fdfdf5;
+    --card-bg: #ffffff;
+    --text-color: #333;
+    --link-color: #fff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--light-bg);
+}
+
+.account-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-bg);
+    padding: 20px;
+}
+
+.account-container {
+    display: flex;
+    width: 100%;
+    max-width: 900px;
+    min-height: 650px;
+    position: relative;
+    gap: 100px; /* Space between panels on desktop */
+    background: transparent;
+    padding: 0;
+    border-radius: 24px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.account-left,
+.account-right {
+    flex: 1 1 0;
+    padding: 48px 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.account-left {
+    background: var(--primary-color);
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+    border-right: 3px solid var(--secondary-color);
+}
+
+.account-right {
+    background: var(--card-bg);
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+    border-left: 3px solid var(--secondary-color);
+}
+
+.account-logo {
+    width: 300px;
+    margin-bottom: 16px;
+    max-width: 100%;
+}
+
+.account-title {
+    color: var(--link-color);
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 8px 0 16px 0;
+    text-align: center;
+}
+
+.account-desc {
+    color: var(--link-color);
+    font-size: 1rem;
+    text-align: center;
+    max-width: 320px;
+    opacity: 0.9;
+}
+
+.form-header {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-header h2 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.account-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-row {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}
+
+.form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.account-form label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.account-form input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background: white;
+}
+
+.account-form input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Error message styling */
+.form-group span.error {
+    display: none;
+    font-size: 0.75em;
+    color: red;
+    margin-top: 4px;
+}
+
+/* This helps show the error when input is invalid */
+.form-group input:invalid:not(:focus):not(:placeholder-shown)~.error {
+    display: block;
+}
+
+/* ================= MODAL STYLES ================= */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(3px);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: slideDown 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+    max-height: 85vh;
+}
+
+@keyframes slideDown {
+    from {transform: translateY(-50px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+.modal-header {
+    padding: 20px 24px;
+    background-color: var(--primary-color);
+    color: white;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.close-btn {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #ddd;
+    text-decoration: none;
+}
+
+.modal-body {
+    padding: 24px;
+    overflow-y: auto;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.modal-body h3 {
+    color: var(--primary-color);
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.modal-body h3:first-child {
+    margin-top: 0;
+}
+
+.modal-footer {
+    padding: 16px 24px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.accept-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.accept-btn:hover {
+    background-color: #004d80;
+}
+
+.terms-option {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.terms-option a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.register-btn {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    padding: 12px 0;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background: var(--secondary-color);
+    color: var(--link-color);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.register-btn:hover {
+    background: rgb(37, 50, 235);
+}
+
+.account-links {
+    text-align: center;
+    margin-top: 14px;
+}
+
+.account-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.account-links a:hover {
+    text-decoration: underline;
+}
+
+/* ================= MOBILE RESPONSIVE DESIGN (Use this for your Android!) ================= */
+@media screen and (max-width: 900px) {
+    .account-container {
+        flex-direction: column;
+        width: 100%;
+        min-height: auto;
+        gap: 0; /* No gap on mobile */
+        border-radius: 12px;
+    }
+
+    .account-left {
+        padding: 30px 20px;
+        border-right: none;
+        border-bottom: 3px solid var(--secondary-color);
+        border-radius: 12px 12px 0 0;
+    }
+
+    .account-logo {
+        width: 180px;
+    }
+
+    .account-title {
+        font-size: 1.5rem;
+    }
+
+    .account-right {
+        padding: 30px 20px;
+        border-left: none;
+        border-radius: 0 0 12px 12px;
+    }
+    
+    .form-header h2 {
+        text-align: center;
+    }
+
+    /* On mobile, stack the First Name and Last Name */
+    .form-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
