@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TM2R DIGIHEALTH Login</title>
     <link rel="stylesheet" href="css/loginpage.css" />
+    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
     <div class="login-wrapper">
@@ -59,5 +60,35 @@
             </div>
         </div>
     </div>
+    <script>
+    // 1. Initialize the Netlify Widget
+    if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+            if (!user) {
+                console.log("No user logged in");
+            } else {
+                console.log("User is already logged in");
+            }
+        });
+    }
+
+    // 2. Handle the Login Form Submission
+    const loginForm = document.getElementById('login-form');
+    
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop the form from submitting normally
+            netlifyIdentity.open('login'); // Open the Netlify Login Popup
+        });
+    }
+
+    // 3. REDIRECT after successful login
+    // This watches for the "login" event. When it happens, we send them to the homepage.
+    netlifyIdentity.on('login', user => {
+        console.log('Login successful!', user);
+        netlifyIdentity.close(); // Close the popup
+        window.location.href = "html/ho_me.html"; // GO TO HOMEPAGE
+    });
+</script>
 </body>
 </html>
